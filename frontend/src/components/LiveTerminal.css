@@ -1,0 +1,49 @@
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.terminal-content {
+  background: rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 1rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.terminal-empty {
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.log-entry {
+  display: flex;
+  gap: 0.75rem;
+  animation: slideIn 0.3s ease;
+}
+
+.log-time {
+  color: #64748b;
+  min-width: 90px;
+}
+
+.log-message {
+  color: #a78bfa;
+}
+
+.log-entry.phase_start .log-message { color: #60a5fa; font-weight: bold; }
+.log-entry.task_start .log-message { color: #fcd34d; }
+.log-entry.task_complete .log-message { color: #34d399; }
+.log-entry.phase_complete .log-message { color: #34d399; font-weight: bold; }
+.log-entry.swarm_error .log-message { color: #ef4444; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
