@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 model = genai.GenerativeModel(
-    "gemini-2.0-flash",
+    "gemini-2.5-flash",
     generation_config={"response_mime_type": "application/json"}
 )
 
@@ -30,7 +30,7 @@ async def call_gemini(prompt: str) -> dict:
 
 async def call_gemini_text(prompt: str) -> str:
     try:
-        text_model = genai.GenerativeModel("gemini-2.0-flash")
+        text_model = genai.GenerativeModel("gemini-2.5-flash")
         response = await text_model.generate_content_async(prompt)
         return response.text
     except Exception as e:
